@@ -11,3 +11,12 @@ switch($_SERVER['REQUEST_URI']){
         echo "404 page not found!";
         break;
 }
+
+include __DIR__ . '/../src/Animal.php';
+
+$animal1 = new Animal("Nuustik", 4);
+var_dump($animal1);
+$animal2 = new Animal("Muki", 3);
+var_dump($animal2);
+$animal1->sayName();
+$animal2->sayName();
