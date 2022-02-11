@@ -1,21 +1,29 @@
 <?php
 
-$array = [1,2,3];
-array_push($array, 4);
-var_dump($array);
-$array[] = 5;
-var_dump($array);
-var_dump($array[2]);
-$array = [
-    "name" => "Kaspar",
-    "age" => 28,
-    "isMale" => true
-];
-var_dump($array);
-var_dump($array["name"]);
+$name = "Kaspar";
 
-echo "hello " . "world";
-$age = 28;
-echo "Hi I am $age";
-echo 'Hi I am $age';
-echo $array; 
+$list = ['piim', 'sai', 'leib'];
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hi my name is <?php echo $name; ?> </h1>
+    <ul>
+        <?php foreach($list as $item): ?>
+            <li><?=$item?></li>
+        <?php endforeach; ?>
+    </ul>
+    <form action="/greeting.php">
+        <input type="text" placeholder="Your name here..." name="name">
+        <input type="submit">
+    </form>
+</body>
+</html>
