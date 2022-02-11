@@ -2,7 +2,7 @@
 
 $foo = 1;
 
-echo "hello\t world\n";
+echo "hello\t world\n <br>";
 echo $foo;
 var_dump($foo);
 $foo = "hello world";
@@ -24,4 +24,3 @@ var_dump($foo);
  * 
  */
 
- 
