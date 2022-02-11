@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    hello <?=$_GET["name"]?>
+    <h1>Home</h1>
 </body>
 </html>
