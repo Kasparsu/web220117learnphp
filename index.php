@@ -1,26 +1,21 @@
 <?php
 
-$foo = 1;
+$array = [1,2,3];
+array_push($array, 4);
+var_dump($array);
+$array[] = 5;
+var_dump($array);
+var_dump($array[2]);
+$array = [
+    "name" => "Kaspar",
+    "age" => 28,
+    "isMale" => true
+];
+var_dump($array);
+var_dump($array["name"]);
 
-echo "hello\t world\n <br>";
-echo $foo;
-var_dump($foo);
-$foo = "hello world";
-var_dump($foo);
-$foo = 1.2;
-var_dump($foo);
-$foo = true;
-var_dump($foo);
-$foo = false;
-var_dump($foo);
-$foo = null;
-var_dump($foo);
-//var_dump($undefined); warning but keeps going
-
-/**
- * 
- * multi line 
- * comment 
- * 
- */
-
+echo "hello " . "world";
+$age = 28;
+echo "Hi I am $age";
+echo 'Hi I am $age';
+echo $array; 
