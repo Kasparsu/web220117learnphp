@@ -1,27 +1,30 @@
 <?php
 
+use App\Controllers\HomeController;
+
 require __DIR__ . '/../vendor/autoload.php';
 
-switch($_SERVER['REQUEST_URI']){
-    case '/':
-        include __DIR__ . '/../views/home.php';
-        break;
-    case '/about':
-        include __DIR__ . '/../views/about.php';
-        break;
-    default:
-        echo "404 page not found!";
-        break;
+require __DIR__ . '/../helpers.php';
+
+$router = new AltoRouter();
+
+$router->map('GET', '/', [HomeController::class, 'index']);
+
+$router->map('GET', '/about', [HomeController::class, 'about']);
+
+// match current request url
+$match = $router->match();
+
+// call closure or throw 404 status
+if( is_array($match) && is_callable( $match['target'] ) ) {
+	call_user_func_array( $match['target'], $match['params'] ); 
+
+} else if(is_array($match) && is_array($match['target'])) {
+    $class = $match['target'][0];
+    $method = $match['target'][1];
+    $controller = new $class();
+    $controller->$method();
+}  else {
+	// no route was matched
+	header( $_SERVER["SERVER_PROTOCOL"] . ' 404 Not Found');
 }
-
-use App\Animal;
-use App\Pets\Nuustik as Nupsu;
-
-$animal1 = new Animal("Nuustik", 4);
-var_dump($animal1);
-$animal2 = new Animal("Muki", 3);
-var_dump($animal2);
-$animal1->sayName();
-$animal2->sayName();
-
-$nuustik = new Nupsu();

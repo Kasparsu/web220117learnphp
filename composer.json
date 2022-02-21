@@ -11,5 +11,7 @@
             "email": "kasparsu@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "altorouter/altorouter": "^2.0"
+    }
 }
