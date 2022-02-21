@@ -1,5 +1,10 @@
 <?php
 
+spl_autoload_register(function($class){
+    $class = str_replace('App\\', '', $class);
+    require __DIR__ . '/../src/' . $class . '.php';
+});
+
 switch($_SERVER['REQUEST_URI']){
     case '/':
         include __DIR__ . '/../views/home.php';
@@ -12,7 +17,8 @@ switch($_SERVER['REQUEST_URI']){
         break;
 }
 
-include __DIR__ . '/../src/Animal.php';
+use App\Animal;
+use App\Pets\Nuustik as Nupsu;
 
 $animal1 = new Animal("Nuustik", 4);
 var_dump($animal1);
@@ -20,3 +26,5 @@ $animal2 = new Animal("Muki", 3);
 var_dump($animal2);
 $animal1->sayName();
 $animal2->sayName();
+
+$nuustik = new Nupsu();
