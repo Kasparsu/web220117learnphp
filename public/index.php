@@ -9,6 +9,8 @@ require __DIR__ . '/../helpers.php';
 $router = new AltoRouter();
 
 $router->map('GET', '/', [HomeController::class, 'index']);
+$router->map('POST', '/', [HomeController::class, 'index']);
+
 
 $router->map('GET', '/about', [HomeController::class, 'about']);
 
