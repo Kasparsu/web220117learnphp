@@ -1,9 +1,6 @@
 <?php
 
-spl_autoload_register(function($class){
-    $class = str_replace('App\\', '', $class);
-    require __DIR__ . '/../src/' . $class . '.php';
-});
+require __DIR__ . '/../vendor/autoload.php';
 
 switch($_SERVER['REQUEST_URI']){
     case '/':
